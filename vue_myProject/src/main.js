@@ -3,13 +3,22 @@
 import Vue from 'vue';
 import App from './App';
 import router from './router';
+import Vuex from 'vuex';
+import store from './store';
+import axios from './http';
+import api from './http/api';
 
+
+Vue.use(Vuex);
 Vue.config.productionTip = false;
 
+Vue.prototype.$http = axios;
+Vue.prototype.urls = api;
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>',
 });
